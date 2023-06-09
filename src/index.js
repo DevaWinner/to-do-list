@@ -1,29 +1,28 @@
-import _ from 'lodash';
 import './style.css';
 
 const tasksKey = 'todoTasks';
 
 let tasks = [
-  { 
-    description: 'Learn Javascript basics', 
-    completed: false, 
-    index: 1 
+  {
+    description: 'Learn Javascript basics',
+    completed: false,
+    index: 1,
   },
-  { 
-    description: 'Learn Javascript Frameworks', 
-    completed: false, 
-    index: 2 
+  {
+    description: 'Learn Javascript Frameworks',
+    completed: false,
+    index: 2,
   },
-  { 
-    description: 'Learn Javascript styling', 
-    completed: true, 
-    index: 3 
+  {
+    description: 'Learn Javascript styling',
+    completed: true,
+    index: 3,
   },
-  { 
-    description: 'Learn HTML', 
-    completed: false, 
-    index: 4 
-  }
+  {
+    description: 'Learn HTML',
+    completed: false,
+    index: 4,
+  },
 ];
 
 const saveTasks = () => {
@@ -49,6 +48,8 @@ const renderTasks = () => {
     const taskWrapper = document.createElement('div');
     taskWrapper.className = 'task-wrapper';
 
+    const taskText = document.createElement('p');
+
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.checked = task.completed;
@@ -64,7 +65,6 @@ const renderTasks = () => {
     });
     taskWrapper.appendChild(checkbox);
 
-    const taskText = document.createElement('p');
     taskText.innerText = task.description;
     taskText.className = 'task-text';
     if (task.completed) {
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
   addTaskButton.addEventListener('click', addTask);
 
   const taskInput = document.getElementById('task-input');
-  taskInput.addEventListener('keydown', event => {
+  taskInput.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
       addTask();
     }
