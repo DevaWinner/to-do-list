@@ -1,5 +1,5 @@
-# Webpack-Boilerplate
-A webpack boilerplate as a starting point for my projects
+# To do list
+
 <a name="readme-top"></a>
 
 # 📗 Table of Contents
