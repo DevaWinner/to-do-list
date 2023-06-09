@@ -4,9 +4,26 @@ import './style.css';
 const tasksKey = 'todoTasks';
 
 let tasks = [
-  { description: 'Task 1', completed: false, index: 1 },
-  { description: 'Task 2', completed: true, index: 2 },
-  { description: 'Task 3', completed: false, index: 3 },
+  { 
+    description: 'Learn Javascript basics', 
+    completed: false, 
+    index: 1 
+  },
+  { 
+    description: 'Learn Javascript Frameworks', 
+    completed: false, 
+    index: 2 
+  },
+  { 
+    description: 'Learn Javascript styling', 
+    completed: true, 
+    index: 3 
+  },
+  { 
+    description: 'Learn HTML', 
+    completed: false, 
+    index: 4 
+  }
 ];
 
 const saveTasks = () => {
