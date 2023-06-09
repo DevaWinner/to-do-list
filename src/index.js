@@ -68,3 +68,21 @@ const clearTasks = () => {
   saveTasks();
   renderTasks();
 };
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadTasks();
+  renderTasks();
+
+  const addTaskButton = document.getElementById('add-task-button');
+  addTaskButton.addEventListener('click', addTask);
+
+  const taskInput = document.getElementById('task-input');
+  taskInput.addEventListener('keydown', event => {
+    if (event.key === 'Enter') {
+      addTask();
+    }
+  });
+
+  const clearButton = document.getElementById('clear-button');
+  clearButton.addEventListener('click', clearTasks);
+});
