@@ -6,31 +6,48 @@
 
 body {
   font-family: sans-serif;
-}
-
-main {
-  width: 600px;
-  margin: auto;
-  padding: 30px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-.container {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f5f5f5;
 }
 
-.container > *:not(:nth-child(3)) {
-  width: 100%;
+.todo-container {
+  width: 600px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.heading {
+  font-size: 24px;
   border-bottom: 1px solid #ccc;
-  padding: 10px 0;
+  padding: 15px;
 }
 
-.add-new {
-  padding: 10px;
-  border: none;
+.input-container {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.input-container input {
   width: 100%;
+  padding: 15px 0;
+  border: none;
   font-size: 16px;
+  font-style: italic;
+}
+
+.input-container i {
+  font-size: 20px;
+  cursor: pointer;
 }
 
 ul {
@@ -38,13 +55,29 @@ ul {
 }
 
 li {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  padding: 20px 0;
+  padding: 15px;
   border-bottom: 1px solid #ccc;
 }
 
-.completed {
-  text-decoration: line-through;
+.task-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.task-text {
+  flex-grow: 1;
+  padding-left: 9px;
+}
+
+.clear-button {
+  display: block;
+  font-size: 20px;
+  width: 100%;
+  padding: 12px;
+  text-align: center;
+  background-color: #ccc;
+  border: none;
+  cursor: pointer;
 }
