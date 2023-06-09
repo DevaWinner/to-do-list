@@ -3,7 +3,11 @@ import './style.css';
 
 const tasksKey = 'todoTasks';
 
-let tasks = [];
+let tasks = [
+  { description: 'Task 1', completed: false, index: 1 },
+  { description: 'Task 2', completed: true, index: 2 },
+  { description: 'Task 3', completed: false, index: 3 },
+];
 
 const saveTasks = () => {
   localStorage.setItem(tasksKey, JSON.stringify(tasks));
@@ -23,26 +27,39 @@ const renderTasks = () => {
 
   tasks.forEach((task, index) => {
     const listItem = document.createElement('li');
-    listItem.innerText = task.description;
+    listItem.className = 'task-item';
+
+    const taskWrapper = document.createElement('div');
+    taskWrapper.className = 'task-wrapper';
 
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.checked = task.completed;
+    checkbox.className = 'checkbox';
     checkbox.addEventListener('change', () => {
       tasks[index].completed = checkbox.checked;
       if (checkbox.checked) {
-        listItem.classList.add('completed');
+        taskText.classList.add('completed');
       } else {
-        listItem.classList.remove('completed');
+        taskText.classList.remove('completed');
       }
       saveTasks();
     });
-    listItem.prepend(checkbox);
+    taskWrapper.appendChild(checkbox);
+
+    const taskText = document.createElement('p');
+    taskText.innerText = task.description;
+    taskText.className = 'task-text';
+    if (task.completed) {
+      taskText.classList.add('completed');
+    }
+    taskWrapper.appendChild(taskText);
 
     const kebabMenu = document.createElement('i');
-    kebabMenu.className = 'fas fa-ellipsis-v kebab-menu';
-    listItem.appendChild(kebabMenu);
+    kebabMenu.className = 'bx bx-dots-vertical-rounded';
+    taskWrapper.appendChild(kebabMenu);
 
+    listItem.appendChild(taskWrapper);
     todoList.appendChild(listItem);
   });
 };
@@ -64,7 +81,7 @@ const addTask = () => {
 };
 
 const clearTasks = () => {
-  tasks.length = 0; // Clear tasks array
+  tasks = [];
   saveTasks();
   renderTasks();
 };
