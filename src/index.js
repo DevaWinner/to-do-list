@@ -13,3 +13,36 @@ const loadTasks = () => {
   const storedTasks = localStorage.getItem(tasksKey);
   tasks = storedTasks ? JSON.parse(storedTasks) : [];
 };
+
+const renderTasks = () => {
+  const todoList = document.getElementById('todo-list');
+
+  todoList.innerHTML = ''; // Clear existing list
+
+  tasks.sort((a, b) => a.index - b.index);
+
+  tasks.forEach((task, index) => {
+    const listItem = document.createElement('li');
+    listItem.innerText = task.description;
+
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.checked = task.completed;
+    checkbox.addEventListener('change', () => {
+      tasks[index].completed = checkbox.checked;
+      if (checkbox.checked) {
+        listItem.classList.add('completed');
+      } else {
+        listItem.classList.remove('completed');
+      }
+      saveTasks();
+    });
+    listItem.prepend(checkbox);
+
+    const kebabMenu = document.createElement('i');
+    kebabMenu.className = 'fas fa-ellipsis-v kebab-menu';
+    listItem.appendChild(kebabMenu);
+
+    todoList.appendChild(listItem);
+  });
+};
