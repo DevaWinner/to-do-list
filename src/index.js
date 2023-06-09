@@ -62,3 +62,9 @@ const addTask = () => {
     taskInput.value = '';
   }
 };
+
+const clearTasks = () => {
+  tasks.length = 0; // Clear tasks array
+  saveTasks();
+  renderTasks();
+};
