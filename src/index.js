@@ -46,3 +46,19 @@ const renderTasks = () => {
     todoList.appendChild(listItem);
   });
 };
+
+const addTask = () => {
+  const taskInput = document.getElementById('task-input');
+  const newTaskDescription = taskInput.value.trim();
+  if (newTaskDescription !== '') {
+    const newTask = {
+      description: newTaskDescription,
+      completed: false,
+      index: tasks.length + 1,
+    };
+    tasks.push(newTask);
+    saveTasks();
+    renderTasks();
+    taskInput.value = '';
+  }
+};
