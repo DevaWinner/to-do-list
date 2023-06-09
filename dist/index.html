@@ -5,10 +5,24 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Todo List</title>
+
+  <link rel="stylesheet" href="./style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 <script defer src="main.js"></script></head>
 <body>
-  <h1>Todo List</h1>
-  <div id="todo-list"></div>
+  <main> 
+    <section class="todo-container">
+      <p class="heading">Today's To Do</p>
+      <div id="todo-app">
+        <div class="input-container">
+          <input type="text" id="task-input" placeholder="Add new task">
+          <button id="add-task-button"><i class="fas fa-plus"></i></button>
+        </div>
+        <ul id="todo-list"></ul>
+        <button id="clear-button" class="clear-button">Clear</button>
+      </div>
+    </section>
+  </main>
   <script src="index.js"></script>
 </body>
 </html>
